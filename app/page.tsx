@@ -1,7 +1,10 @@
 import Image from 'next/image'
 import {CharacterCard} from "@/app/components/CharacterCard";
+import {getCharacters} from "@/app/utils/api";
 
-export default function Home() {
+export default  async function Home() {
+    const character = await getCharacters();
+    console.log(character);
   return (
     <main>
       <div className={"container text-center"}>
