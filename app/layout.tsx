@@ -5,7 +5,7 @@ import {Navbar} from "@/app/components/Navbar";
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Marvel-Pedia',
+  title: 'Marvel Comics Wiki',
   description: 'A Marvel Comics Wiki',
 }
 
