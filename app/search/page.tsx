@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import {searchCharacterByName} from "@/app/utils/api";
 import {Character} from "@/app/type/marvels";
 import {CharacterCard} from "@/app/components/CharacterCard";
+import {LoadingBars} from "@/app/components/LoadingBars";
 
 interface SearchPageProps {
 
@@ -43,7 +44,7 @@ export default function SearchPage({}: SearchPageProps) {
                 <h1 className={"text-3xl font-bold"}>Search for <span>&quot;{ query }&quot;</span></h1>
                 {
                     loading ? <div className={"mt-10"}>
-                        <h1 className={"text-3xl font-bold"}>Loading...</h1>
+                        <LoadingBars/>
                     </div> :(
                         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
                             {

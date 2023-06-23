@@ -7,7 +7,7 @@ export default  async function Home() {
   return (
     <main>
       <div className={"container text-center"}>
-          <h1 className={"text-3xl font-bold underline"}>Popular Character Marvels</h1>
+          <h1 className={"text-3xl font-bold underline mb-5"}>Popular Character Marvels</h1>
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
             {
                 character.results.map((character) => (
