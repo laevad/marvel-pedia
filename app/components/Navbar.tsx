@@ -1,10 +1,14 @@
+import Link from "next/link";
+
 export const Navbar = () => {
 	return (
 		<>
 			<header>
 				<div className="navbar bg-base-100 container">
 					<div className="flex-1">
-						<a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+						<Link href={"/"} className="btn btn-ghost normal-case text-xl">
+							Marvel-Pedia
+						</Link>
 					</div>
 					<div className="flex-none gap-2">
 						<div className="form-control">
