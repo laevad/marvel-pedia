@@ -29,3 +29,9 @@ export const getAllCharacters = async (): Promise<CharacterDataWrapper> => {
     const response = await fetch(`${BASE_URL}characters${queryParams}`);
    return handleResponse<CharacterDataWrapper>(response);
 }
+
+// get character by id
+export const getCharacterById = async (id: number): Promise<CharacterDataWrapper> => {
+    const response = await fetch(`${BASE_URL}characters/${id}${queryParams}`);
+    return handleResponse<CharacterDataWrapper>(response);
+}

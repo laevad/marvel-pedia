@@ -1,13 +1,16 @@
+import {getCharacterById} from "@/app/utils/api";
+
 interface CharacterPageProps {
     params: {
-        id: string;
+        id: number;
     }
 }
 
-export default function page({params}: CharacterPageProps) {
+export default async function page({params}: CharacterPageProps) {
     const {id} = params;
-    console.log(id);
-    return(
+    const character = await getCharacterById(id);
+    console.log(character);
+    return (
         <>
             <div className="">Page!</div>
         </>
