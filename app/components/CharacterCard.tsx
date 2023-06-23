@@ -1,4 +1,5 @@
 import {Character} from "@/app/type/marvels";
+import Link from "next/link";
 
 interface CharacterCardProps {
 	character: Character;
@@ -14,7 +15,7 @@ export const CharacterCard = ({character}: CharacterCardProps) => {
 				<div className="card-body">
 					<h2 className="card-title">{character.name}</h2>
 					<div className="card-actions justify-end">
-						<button className="btn btn-primary">Detail { character.name }</button>
+						<Link href={`/character/${character.id}`} className="btn btn-primary">Detail { character.name }</Link>
 					</div>
 				</div>
 			</div>
