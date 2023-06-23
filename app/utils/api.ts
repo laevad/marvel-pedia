@@ -1,5 +1,7 @@
 // @ts-ignore
 import md5 from "md5";
+import {CharacterDataWrapper} from "@/app/type/marvels";
+import {Response} from "next/dist/compiled/@edge-runtime/primitives";
 
 const BASE_URL = 'https://gateway.marvel.com/v1/public/';
 const API_PUBLIC_KEY="c2a0e16138109fe8c958a57e370ebaa1";
@@ -14,14 +16,16 @@ const hash = getHash(timestamp);
 const queryParams = `?ts=${timestamp}&apikey=${API_PUBLIC_KEY}&hash=${hash}`;
 
 // handle response
-const handleResponse = (response: any) => {
+const handleResponse = async <T>(response: Response) => {
     if (!response.ok) {
         throw Error(response.statusText);
     }
-    return response;
+    const data = await response.json();
+    return data.data as T;
 }
 
-export const getCharacters = async () => {
+// get all characters
+export const getAllCharacters = async (): Promise<CharacterDataWrapper> => {
     const response = await fetch(`${BASE_URL}characters${queryParams}`);
-    handleResponse(response);
+   return handleResponse<CharacterDataWrapper>(response);
 }

@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import {CharacterCard} from "@/app/components/CharacterCard";
-import {getCharacters} from "@/app/utils/api";
+import {getAllCharacters} from "@/app/utils/api";
 
 export default  async function Home() {
-    const character = await getCharacters();
+    const character = await getAllCharacters();
     console.log(character);
   return (
     <main>
