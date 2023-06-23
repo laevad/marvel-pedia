@@ -35,3 +35,9 @@ export const getCharacterById = async (id: number): Promise<CharacterDataWrapper
     const response = await fetch(`${BASE_URL}characters/${id}${queryParams}`);
     return handleResponse<CharacterDataWrapper>(response);
 }
+
+// search character by name with limit 99
+export const searchCharacterByName = async (name: string | null): Promise<CharacterDataWrapper> => {
+    const response = await fetch(`${BASE_URL}characters${queryParams}&nameStartsWith=${name}&limit=99`);
+    return handleResponse<CharacterDataWrapper>(response);
+}
