@@ -1,13 +1,16 @@
 "use client";
 import Link from "next/link";
 import React, {useState} from "react";
+import {useRouter} from "next/navigation";
 
 export const Navbar = () => {
 	const [querySearch, setQuerySearch] = useState<string>("");
+	const router = useRouter();
 
 	const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === "Enter" && querySearch !== "") {
-
+			setQuerySearch("");
+			router.push(`/search?query=${querySearch}`);
 		}
 	}
 	return (
