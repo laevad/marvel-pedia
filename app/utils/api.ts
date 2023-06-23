@@ -13,7 +13,15 @@ const timestamp = getTimestamp();
 const hash = getHash(timestamp);
 const queryParams = `?ts=${timestamp}&apikey=${API_PUBLIC_KEY}&hash=${hash}`;
 
+// handle response
+const handleResponse = (response: any) => {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+    return response;
+}
+
 export const getCharacters = async () => {
     const response = await fetch(`${BASE_URL}characters${queryParams}`);
-    return await response.json();
+    handleResponse(response);
 }
