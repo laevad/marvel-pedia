@@ -1,7 +1,7 @@
 export const CharacterCard = () => {
 	return (
 		<>
-			character card
+			Character Card
 		</>
 	)
 }
