@@ -4,7 +4,6 @@ import {getAllCharacters} from "@/app/utils/api";
 
 export default  async function Home() {
     const character = await getAllCharacters();
-    console.log(character);
   return (
     <main>
       <div className={"container text-center"}>
