@@ -3,6 +3,7 @@ import {useRouter, useSearchParams} from "next/navigation";
 import {useEffect, useState} from "react";
 import {searchCharacterByName} from "@/app/utils/api";
 import {Character} from "@/app/type/marvels";
+import {CharacterCard} from "@/app/components/CharacterCard";
 
 interface SearchPageProps {
 
@@ -40,6 +41,19 @@ export default function SearchPage({}: SearchPageProps) {
         <>
             <div className="container text-center mt-10">
                 <h1 className={"text-3xl font-bold"}>Search for <span>&quot;{ query }&quot;</span></h1>
+                {
+                    loading ? <div className={"mt-10"}>
+                        <h1 className={"text-3xl font-bold"}>Loading...</h1>
+                    </div> :(
+                        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+                            {
+                                character.map((character) => (
+                                    <CharacterCard character={character} key={character.id}/>
+                                ))
+                            }
+                        </div>
+                    )
+                }
             </div>
         </>
     );
