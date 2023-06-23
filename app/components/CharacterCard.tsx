@@ -9,6 +9,7 @@ export const CharacterCard = ({character}: CharacterCardProps) => {
 		<>
 			<div className="card card-compact w-full bg-base-100 shadow-xl">
 				<figure>
+					<img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt={character.name} className="object-cover w-full h-48" />
 				</figure>
 				<div className="card-body">
 					<h2 className="card-title">{character.name}</h2>
